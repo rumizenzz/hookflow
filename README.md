@@ -2,7 +2,7 @@
 
 **A lightweight webhook and API pipeline builder. Connect triggers to actions and automate your workflows.**
 
-[Try it live](#) <!-- Replace with Netlify URL -->
+[Try it live](https://hookflow-app.netlify.app)
 
 ## The Problem
 

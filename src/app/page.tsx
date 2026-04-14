@@ -69,7 +69,7 @@ export default function Home() {
         <p>
           Built with AI-assisted development using{" "}
           <span className="text-accent">Claude Code</span>. Open source on{" "}
-          <a href="https://github.com" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/rumizenzz/hookflow" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>.
         </p>
