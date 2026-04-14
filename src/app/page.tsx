@@ -67,8 +67,9 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-6 text-center text-sm text-foreground/40 border-t border-card-border">
         <p>
-          Built with AI-assisted development using{" "}
-          <span className="text-accent">Claude Code</span>. Open source on{" "}
+          Built by{" "}
+          <a href="https://github.com/rumizenzz" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">rumizenzz</a>
+          {" "}with AI-assisted development. Open source on{" "}
           <a href="https://github.com/rumizenzz/hookflow" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>.

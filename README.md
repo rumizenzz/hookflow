@@ -83,9 +83,11 @@ POST /api/flows/{flow-id}/run
 GET /api/flows/{flow-id}/logs
 ```
 
-## Built With AI-Assisted Development
+## About
 
-This project was built using **Claude Code** and other AI development tools. I use AI to accelerate development while maintaining production-quality code -- every line was reviewed, tested, and deployed by me.
+Hi, I'm **rumizenzz**. I built Hookflow because I kept needing simple webhook-to-action pipelines and everything out there was either too complex or too expensive for basic use cases. Sometimes you just want "when X happens, do Y" without a 50-step setup wizard.
+
+I build fast using AI-assisted development tools like Claude Code -- but every architectural decision, every feature, and every deployment is mine. AI helps me move faster, not think less.
 
 ## License
 
