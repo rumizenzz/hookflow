@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hookflow
+
+**A lightweight webhook and API pipeline builder. Connect triggers to actions and automate your workflows.**
+
+[Try it live](#) <!-- Replace with Netlify URL -->
+
+## The Problem
+
+Developers constantly need to wire up webhooks, API calls, and automated workflows. Tools like Zapier are powerful but overkill for simple integrations, and building custom webhook handlers from scratch is tedious.
+
+Hookflow lets you create trigger-to-action pipelines in seconds, with real-time execution logs.
+
+## Features
+
+- **Three trigger types:** Manual button, incoming webhook URL (auto-generated), scheduled (cron)
+- **Three action types:** HTTP request (GET/POST/PUT/DELETE), data logging, email notification
+- **Real-time execution logs** with status, timing, and error details
+- **Flow dashboard** with enable/disable toggles for each flow
+- **Webhook URLs** -- each flow gets a unique endpoint for receiving external events
+
+## How It Works
+
+```
+Trigger (webhook / manual / schedule)
+    |
+    v
+  Flow Engine (executes action)
+    |
+    v
+Action (HTTP request / log / email)
+    |
+    v
+Execution Log (success/failure, timing, details)
+```
+
+## Tech Stack
+
+- **Next.js 15** (App Router) + TypeScript
+- **Tailwind CSS** for styling
+- **In-memory store** (MVP) -- designed for Supabase integration
+- Deployed on **Netlify**
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
 
 ```bash
+git clone https://github.com/rumizenzz/hookflow.git
+cd hookflow
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) and click "Open Dashboard" to start creating flows.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Create a flow
+```bash
+POST /api/flows
+{ "name": "My Flow", "trigger": { "type": "webhook" }, "action": { "type": "log" } }
+```
 
-## Learn More
+### Trigger a webhook
+```bash
+POST /api/webhook/{flow-id}
+{ "any": "json payload" }
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Run a flow manually
+```bash
+POST /api/flows/{flow-id}/run
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### View execution logs
+```bash
+GET /api/flows/{flow-id}/logs
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Built With AI-Assisted Development
 
-## Deploy on Vercel
+This project was built using **Claude Code** and other AI development tools. I use AI to accelerate development while maintaining production-quality code -- every line was reviewed, tested, and deployed by me.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT -- see [LICENSE](LICENSE) for details.
